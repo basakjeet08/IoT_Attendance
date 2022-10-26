@@ -18,4 +18,4 @@ interface SimpleApi {
 //    suspend fun getPost2(
 //        @Path("postNumber") number: Int
 //    ): retrofit2.Response<Post>
-}
+} 
