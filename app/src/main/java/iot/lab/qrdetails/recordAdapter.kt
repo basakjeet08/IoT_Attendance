@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import iot.lab.qrdetails.model.Post
 
 class recordAdapter() : RecyclerView.Adapter<recordAdapter.MyViewHolder>() {
-    private var data : ArrayList<Post> = ArrayList()
+    private var data : List<Post> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): recordAdapter.MyViewHolder {
         val itemView =
@@ -37,7 +37,7 @@ class recordAdapter() : RecyclerView.Adapter<recordAdapter.MyViewHolder>() {
         val out_time: TextView = itemView.findViewById(R.id.out_time)
 
     }
-    fun updateList(newList: ArrayList<Post>) {
+    fun updateList(newList: List<Post>) {
         data = newList
         notifyDataSetChanged()
     }

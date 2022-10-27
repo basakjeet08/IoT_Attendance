@@ -11,8 +11,6 @@ interface SimpleApi {
     @GET("attendance")
     suspend fun getPost(@Query("filter[roll][_eq]") number: String): retrofit2.Response<Data>
 
-
-    // Changes by Anirban Basak
     @GET("attendance")
     suspend fun getPostOfFixedDay(
         @Query("filter[roll][_eq]") number : String ,
@@ -22,7 +20,6 @@ interface SimpleApi {
     ) : retrofit2.Response<Data>
 
 
-    // Changes by Anirban Basak
     @GET("attendance")
     suspend fun getPostBetweenDays(
         @Query("filter[roll][_eq]") number : String ,
