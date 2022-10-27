@@ -12,6 +12,21 @@ interface SimpleApi {
     suspend fun getPost(@Query("filter[roll][_eq]") number: String): retrofit2.Response<Data>
 
 
+    // Changes by Anirban Basak
+    @GET("attendance")
+    suspend fun getPostOfFixedDay(
+        @Query("filter[day(in_time)][_eq]")inTimeDay : String ,
+        @Query("filter[month(in_time)][_eq]")inTimeMonth : String ,
+        @Query("filter[year(in_time)][_eq]")inTimeYear : String
+    ) : retrofit2.Response<Data>
+
+
+    // Changes by Anirban Basak
+    @GET("attendance")
+    suspend fun getPostBetweenDays(
+        @Query("filter[in_time][_between]")inTimeBetween : String
+    ) : retrofit2.Response<Data>
+
 
 
 //    @GET("posts/{postNumber}")

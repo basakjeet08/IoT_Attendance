@@ -3,6 +3,7 @@ package iot.lab.qrdetails
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -26,29 +27,11 @@ class AttendanceActivity : AppCompatActivity() {
 
         binding.getAttendance.setOnClickListener {
 
-            val rollNumberText = binding.rollNumber.text
-
-            Log.d("Response", "heyyyyyyyyyyyyyy")
-            recyclerView = binding.recyclerView
-            recyclerView.layoutManager = LinearLayoutManager(this)
-            recyclerView.setHasFixedSize(true)
-
-            val repository =  Repository()
-            val viewModelFactory = MainViewModelFactory(repository)
-            viewModel = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
-            viewModel.getPost(rollNumberText.toString())
-            viewModel.myResponse.observe(this, Observer { response ->
-                if(response.isSuccessful) {
-
-                    Log.d("Response", response.body().toString())
-                    recyclerView.adapter = recordAdapter(response.body()?.data as ArrayList<Post>)
-                }
-            })
-            binding.rollNumber.text.clear()
-
+            if(binding.rollNumber.text.isEmpty())
+                Toast.makeText(this , "Enter the Roll Number " , Toast.LENGTH_SHORT).show()
+            else
+                showData()
         }
-
-
 
 
 
@@ -60,5 +43,26 @@ class AttendanceActivity : AppCompatActivity() {
 //            recyclerView.adapter = adapter_rides(it)
 //
 //        })
+    }
+    private fun showData(){
+
+        val rollNumberText = binding.rollNumber.text
+        Log.d("Response", "heyyyyyyyyyyyyyy")
+        recyclerView = binding.recyclerView
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.setHasFixedSize(true)
+
+        val repository =  Repository()
+        val viewModelFactory = MainViewModelFactory(repository)
+        viewModel = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
+        viewModel.getPost(rollNumberText.toString())
+        viewModel.myResponse.observe(this, Observer { response ->
+            if(response.isSuccessful) {
+
+                Log.d("Response", response.body().toString())
+                recyclerView.adapter = recordAdapter(response.body()?.data as ArrayList<Post>)
+            }
+        })
+        binding.rollNumber.text.clear()
     }
 }
