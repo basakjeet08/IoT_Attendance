@@ -11,13 +11,13 @@ class Repository {
     }
 
     //Function added by Anirban Basak
-    suspend fun getPostOfFixedDay(inTimeDay : String , inTimeMonth : String, inTimeYear : String) : Response<Data>{
-        return RetrofitInstance.api.getPostOfFixedDay(inTimeDay , inTimeMonth , inTimeYear)
+    suspend fun getPostOfFixedDay(rollNumber : String ,inTimeDay : String , inTimeMonth : String, inTimeYear : String) : Response<Data>{
+        return RetrofitInstance.api.getPostOfFixedDay(rollNumber , inTimeDay , inTimeMonth , inTimeYear)
     }
 
     //Function added by Anirban Basak
-    suspend fun getPostBetweenDays(inTimeBetween : String) : retrofit2.Response<Data>{
-        return RetrofitInstance.api.getPostBetweenDays(inTimeBetween)
+    suspend fun getPostBetweenDays(rollNumber : String , inTimeBetween : String) : retrofit2.Response<Data>{
+        return RetrofitInstance.api.getPostBetweenDays(rollNumber , inTimeBetween)
     }
 
 }

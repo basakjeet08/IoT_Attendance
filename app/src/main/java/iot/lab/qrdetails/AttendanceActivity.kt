@@ -18,11 +18,14 @@ class AttendanceActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAttendanceBinding
     private lateinit var viewModel: MainViewModel
     private lateinit var recyclerView: RecyclerView
+    private val repository = Repository()
+    private val adapter by lazy { recordAdapter() }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAttendanceBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
+        setupRecyclerView()
 
 
         binding.getAttendance.setOnClickListener {
@@ -30,27 +33,14 @@ class AttendanceActivity : AppCompatActivity() {
             if(binding.rollNumber.text.isEmpty())
                 Toast.makeText(this , "Enter the Roll Number " , Toast.LENGTH_SHORT).show()
             else
-                showData()
+                showPostByRollNumber()
         }
 
 
-
-
-//        viewModel.member.observe(viewLifecycleOwner, Observer {
-//            it.forEach { ride ->
-//                ride.distance = (ride.destination_station_code - ride.origin_station_code).toString()
-//            }
-//            recyclerView.adapter = adapter_rides(it)
-//
-//        })
     }
-    private fun showData(){
+    private fun showPostByRollNumber(){
 
         val rollNumberText = binding.rollNumber.text
-        Log.d("Response", "heyyyyyyyyyyyyyy")
-        recyclerView = binding.recyclerView
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.setHasFixedSize(true)
 
         val repository =  Repository()
         val viewModelFactory = MainViewModelFactory(repository)
@@ -60,9 +50,67 @@ class AttendanceActivity : AppCompatActivity() {
             if(response.isSuccessful) {
 
                 Log.d("Response", response.body().toString())
+
+
+                recyclerView.adapter = recordAdapter()
+
+
+            }
+        })
+        binding.rollNumber.text.clear()
+    }
+    private fun showPostOfFixedDay(){
+        val rollNumberText = binding.rollNumber.text
+        Log.d("Response", "heyyyyyyyyyyyyyy")
+        recyclerView = binding.recyclerView
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.setHasFixedSize(true)
+
+        val repository =  Repository()
+        val viewModelFactory = MainViewModelFactory(repository)
+        viewModel = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
+
+//        viewModel.getPost(rollNumberText.toString())
+        viewModel.getPostOfFixedDay(rollNumberText.toString() , "18" , "10" , "2022")
+//        viewModel.getPostBetweenDays(rollNumberText.toString() ,"2022-09-10,2022-09-12")
+
+
+        viewModel.myResponse.observe(this, Observer { response ->
+            if(response.isSuccessful) {
+
+                Log.d("Response", response.body().toString())
                 recyclerView.adapter = recordAdapter(response.body()?.data as ArrayList<Post>)
             }
         })
         binding.rollNumber.text.clear()
+    }
+
+    private fun showPostBetweenDay(){
+        val rollNumberText = binding.rollNumber.text
+        Log.d("Response", "heyyyyyyyyyyyyyy")
+        recyclerView = binding.recyclerView
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.setHasFixedSize(true)
+
+        val repository =  Repository()
+        val viewModelFactory = MainViewModelFactory(repository)
+        viewModel = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
+        viewModel.getPostBetweenDays(rollNumberText.toString() ,"2022-09-10,2022-10-27")
+
+
+        viewModel.myResponse.observe(this, Observer { response ->
+            if(response.isSuccessful) {
+                Log.d("Response", response.body().toString())
+                recyclerView.adapter = recordAdapter(response.body()?.data as ArrayList<Post>)
+            }
+        })
+        binding.rollNumber.text.clear()
+    }
+
+    fun setupRecyclerView(){
+        recyclerView = binding.recyclerView
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = adapter
+        recyclerView.setHasFixedSize(true)
     }
 }

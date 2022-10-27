@@ -26,17 +26,17 @@ class MainViewModel(private val repository: Repository): ViewModel() {
     }
 
     //Function added by Anirban Basak
-    fun getPostOfFixedDay(inTimeDay : String , inTimeMonth : String, inTimeYear : String){
+    fun getPostOfFixedDay(rollNumber : String , inTimeDay : String , inTimeMonth : String, inTimeYear : String){
         viewModelScope.launch {
-            val response : Response<Data> = repository.getPostOfFixedDay(inTimeDay , inTimeMonth , inTimeYear)
+            val response : Response<Data> = repository.getPostOfFixedDay(rollNumber , inTimeDay , inTimeMonth , inTimeYear)
             _myResponse.value = response
         }
     }
 
     //Function added by Anirban Basak
-    fun getPostBetweenDays(inTimeBetween : String){
+    fun getPostBetweenDays(rollNumber : String , inTimeBetween : String){
         viewModelScope.launch {
-            val response : Response<Data> = repository.getPostBetweenDays(inTimeBetween)
+            val response : Response<Data> = repository.getPostBetweenDays(rollNumber , inTimeBetween)
             _myResponse.value = response
         }
     }
