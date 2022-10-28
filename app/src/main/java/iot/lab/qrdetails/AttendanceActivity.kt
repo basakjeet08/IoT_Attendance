@@ -14,7 +14,7 @@ import java.util.*
 class AttendanceActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAttendanceBinding
     private lateinit var viewModel: MainViewModel
-    private val adapter by lazy { RecordAdapter() }
+    private val adapter by lazy { RecordAdapter(this) }
 
     private var forFixedDay : String ? = null
     private var forFixedMonth : String ? = null
