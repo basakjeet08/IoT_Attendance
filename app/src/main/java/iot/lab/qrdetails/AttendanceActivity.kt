@@ -21,10 +21,8 @@ class AttendanceActivity : AppCompatActivity() {
 
 
 
-    private var inTimeBetween : String? = null
-    private var fixedTimeYear : String? = null
-    private var fixedTimeMonth : String? = null
-    private var fixedTimeDate : String? = null
+    private var inTimeBetweenStart : String? = null
+    private var inTimeBetweenEnd : String? = null
 
 
 
@@ -60,14 +58,21 @@ class AttendanceActivity : AppCompatActivity() {
             if(binding.rollNumber.text.isEmpty())
                 Toast.makeText(this , "Enter the Roll Number " , Toast.LENGTH_SHORT).show()
             else {
-                setDatePicker(1)
-                if(inTimeBetween == null && fixedTimeDate == null)
+                if(inTimeBetweenStart == null && inTimeBetweenEnd == null)
                     showPostByRollNumber()
-                else if(inTimeBetween == null)
+                else if(inTimeBetweenStart == inTimeBetweenEnd )
                     showPostOfFixedDay()
                 else
                     showPostBetweenDay()
             }
+        }
+
+        binding.btnFromDate.setOnClickListener {
+            setDatePicker(1)
+        }
+
+        binding.btnFromDate.setOnClickListener {
+            setDatePicker(2)
         }
     }
 
@@ -79,6 +84,7 @@ class AttendanceActivity : AppCompatActivity() {
     }
 
     //Shows the fetched Data of a Roll at fixed Day
+    //TODO not completed
     private fun showPostOfFixedDay(){
         val rollNumberText = binding.rollNumber.text.toString()
         viewModel.getPostOfFixedDay(rollNumberText , "18" , "10" , "2022")
@@ -88,10 +94,11 @@ class AttendanceActivity : AppCompatActivity() {
     //Shows the fetched Data of a roll in a Range of dates
     private fun showPostBetweenDay(){
         val rollNumberText = binding.rollNumber.text.toString()
-        viewModel.getPostBetweenDays(rollNumberText ,"2022-09-10,2022-10-27")
+        viewModel.getPostBetweenDays(rollNumberText ,"$inTimeBetweenStart,$inTimeBetweenEnd")
         binding.rollNumber.text.clear()
     }
 
+    // Setting up the Date Picker and taking the Dates as follows
     private fun setDatePicker(value : Int){
         val myCalendar = Calendar.getInstance()
         val currentYear = myCalendar.get(Calendar.YEAR)
@@ -99,13 +106,8 @@ class AttendanceActivity : AppCompatActivity() {
         val currentDate = myCalendar.get(Calendar.DATE)
         DatePickerDialog(this , { _, selectedYear, selectedMonth, selectedDay ->
             when(value){
-                1 -> {
-                    fixedTimeDate = selectedDay.toString()
-                    fixedTimeMonth = selectedMonth.toString()
-                    fixedTimeYear = selectedYear.toString()
-                }
-                2 -> inTimeBetween = "$selectedYear-$selectedMonth-$selectedDay,"
-                3 -> inTimeBetween += "$selectedYear-$selectedMonth-$selectedDay"
+                1 -> inTimeBetweenStart = "$selectedYear-$selectedMonth-$selectedDay"
+                2 -> inTimeBetweenEnd = "$selectedYear-$selectedMonth-$selectedDay"
             }
         }, currentYear , currentMonth , currentDate).show()
     }
