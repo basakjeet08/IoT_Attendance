@@ -1,5 +1,6 @@
 package iot.lab.qrdetails
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -9,12 +10,26 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import iot.lab.qrdetails.databinding.ActivityAttendanceBinding
 import iot.lab.qrdetails.repository.Repository
+import java.util.*
 
 class AttendanceActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAttendanceBinding
     private lateinit var viewModel: MainViewModel
     private lateinit var recyclerView: RecyclerView
     private val adapter by lazy { recordAdapter() }
+
+
+
+
+    private var inTimeBetween : String? = null
+    private var fixedTimeYear : String? = null
+    private var fixedTimeMonth : String? = null
+    private var fixedTimeDate : String? = null
+
+
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,9 +60,13 @@ class AttendanceActivity : AppCompatActivity() {
             if(binding.rollNumber.text.isEmpty())
                 Toast.makeText(this , "Enter the Roll Number " , Toast.LENGTH_SHORT).show()
             else {
-                showPostByRollNumber()
-//                showPostOfFixedDay()
-//                showPostBetweenDay()
+                setDatePicker(1)
+                if(inTimeBetween == null && fixedTimeDate == null)
+                    showPostByRollNumber()
+                else if(inTimeBetween == null)
+                    showPostOfFixedDay()
+                else
+                    showPostBetweenDay()
             }
         }
     }
@@ -71,5 +90,23 @@ class AttendanceActivity : AppCompatActivity() {
         val rollNumberText = binding.rollNumber.text.toString()
         viewModel.getPostBetweenDays(rollNumberText ,"2022-09-10,2022-10-27")
         binding.rollNumber.text.clear()
+    }
+
+    private fun setDatePicker(value : Int){
+        val myCalendar = Calendar.getInstance()
+        val currentYear = myCalendar.get(Calendar.YEAR)
+        val currentMonth = myCalendar.get(Calendar.MONTH)
+        val currentDate = myCalendar.get(Calendar.DATE)
+        DatePickerDialog(this , { _, selectedYear, selectedMonth, selectedDay ->
+            when(value){
+                1 -> {
+                    fixedTimeDate = selectedDay.toString()
+                    fixedTimeMonth = selectedMonth.toString()
+                    fixedTimeYear = selectedYear.toString()
+                }
+                2 -> inTimeBetween = "$selectedYear-$selectedMonth-$selectedDay,"
+                3 -> inTimeBetween += "$selectedYear-$selectedMonth-$selectedDay"
+            }
+        }, currentYear , currentMonth , currentDate).show()
     }
 }

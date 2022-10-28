@@ -46,6 +46,31 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="RtlSymmetry" />
 
+         <ImageView
+             android:id="@+id/btnFromDate"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:src="@drawable/ic_baseline_access_time_filled_24"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@id/rollNumber"
+             app:layout_constraintBottom_toTopOf="@id/getAttendance"
+             android:layout_marginEnd="300dp"
+             android:layout_marginTop="32dp"
+             />
+        <ImageView
+            android:id="@+id/btnToDate"
+            android:layout_marginTop="32dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_access_time_filled_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnFromDate"
+            app:layout_constraintBottom_toTopOf="@id/getAttendance"
+            android:layout_marginEnd="300dp"
+            />
+
         <Button
             android:id="@+id/getAttendance"
             android:layout_width="168dp"
@@ -55,7 +80,8 @@
             android:fontFamily="@font/poppins_bold"
             android:text="Get status"
             android:textAllCaps="false"
-            android:textSize="16dp"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
