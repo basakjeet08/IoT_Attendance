@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">QRDetails</string>
     <string name="roll_number">Roll Number</string>
+    <string name="get_status">Get status</string>
+    <string name="from_date">From Date</string>
+    <string name="to_date">To Date</string>
+    <string name="format">%s</string>
 </resources>

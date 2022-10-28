@@ -7,16 +7,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import iot.lab.qrdetails.model.Post
 
-class recordAdapter() : RecyclerView.Adapter<recordAdapter.MyViewHolder>() {
+class RecordAdapter() : RecyclerView.Adapter<RecordAdapter.MyViewHolder>() {
     private var data : List<Post> = emptyList()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): recordAdapter.MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecordAdapter.MyViewHolder {
         val itemView =
             LayoutInflater.from(parent.context).inflate(R.layout.record, parent, false)
         return MyViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: recordAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecordAdapter.MyViewHolder, position: Int) {
         val currentItem = data[position]
         holder.roll.text = currentItem.roll
         holder.in_time.text = currentItem.in_time
