@@ -31,7 +31,7 @@ class RecordAdapter(private val context: Context) : RecyclerView.Adapter<RecordA
         formatReceived.timeZone = TimeZone.getTimeZone("GMT+5.30")
 
         //Setting Our Desired Format of Date and Time
-        val desiredFormat = SimpleDateFormat("dd-MMM-yyyy hh:mm:ss a")
+        val desiredFormat = SimpleDateFormat("dd-MMM-yyyy      'Time : ' hh:mm:ss a")
 
         //Making Date objects from the in time and out Time strings
         val dateInTime = formatReceived.parse(currentItem.in_time)!!
@@ -61,7 +61,9 @@ class RecordAdapter(private val context: Context) : RecyclerView.Adapter<RecordA
 
     }
     fun updateList(newList: List<Post>) {
-        data = newList
+        data = newList.sortedByDescending {
+            it.in_time
+        }
         notifyDataSetChanged()
     }
 }
