@@ -5,13 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backimg"
+    android:background="@drawable/back_img"
     tools:context=".ChoiceActivity">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/choicebackground"
+        android:background="@drawable/choice_background"
         android:elevation="7dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,6 +22,7 @@
             android:id="@+id/imageView2"
             android:layout_width="0dp"
             android:layout_height="200dp"
+            android:contentDescription="@string/iot_logo"
             android:src="@drawable/iot_icon"
             app:layout_constraintBottom_toTopOf="@+id/textView3"
             app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +30,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
-
 
 
         <TextView
@@ -39,7 +40,7 @@
             android:fontFamily="@font/poppins_bold"
             android:gravity="center"
             android:paddingTop="10dp"
-            android:text="Attendance"
+            android:text="@string/attendance"
             android:textColor="@color/primaryTextColor"
             android:textSize="26sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -53,13 +54,13 @@
         android:id="@+id/innovance"
         android:layout_width="137dp"
         android:layout_height="63dp"
-        android:background="@drawable/butbackground2"
+        android:background="@drawable/but_background2"
         android:fontFamily="@font/poppins"
         android:shadowColor="@color/black"
-        android:text="INNOVANCE"
+        android:text="@string/innovance"
         android:textColor="@color/white"
         android:textColorHighlight="@color/primaryTextColor"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/attendance"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,11 +73,11 @@
         android:layout_height="59dp"
 
         android:layout_marginBottom="180dp"
-        android:background="@drawable/butbackground2"
+        android:background="@drawable/but_background2"
         android:fontFamily="@font/poppins"
-        android:text="Attendance"
+        android:text="@string/attendance"
         android:textColor="@color/white"
-        android:textSize="16dp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"

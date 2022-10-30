@@ -10,19 +10,19 @@
         android:id="@+id/scannerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/card_background"
         app:autoFocusButtonColor="@color/white"
         app:autoFocusButtonVisible="true"
         app:flashButtonColor="@color/white"
         app:flashButtonVisible="true"
-        app:frameColor="@color/white"
-        app:frameCornersSize="50dp"
-        android:background="@drawable/cardbackground"
-        app:frameCornersRadius="0dp"
         app:frameAspectRatioHeight="1"
         app:frameAspectRatioWidth="1"
+        app:frameColor="@color/white"
+        app:frameCornersRadius="0dp"
+        app:frameCornersSize="50dp"
         app:frameSize="0.75"
         app:frameThickness="2dp"
-        app:maskColor="#77000000"/>
+        app:maskColor="#77000000" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
