@@ -13,7 +13,7 @@ class ChoiceActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         binding.innovance.setOnClickListener {
-            val intent = Intent(this@ChoiceActivity, MainActivity::class.java);
+            val intent = Intent(this@ChoiceActivity, QrRollChoiceActivity::class.java);
             startActivity(intent);
         }
         binding.attendance.setOnClickListener {

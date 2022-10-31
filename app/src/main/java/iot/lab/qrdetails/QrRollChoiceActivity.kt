@@ -19,7 +19,7 @@ class QrRollChoiceActivity : AppCompatActivity() {
             val intent = Intent(this , MainActivity::class.java)
             startActivity(intent)
         }
-        binding.btnRollNumber.setOnClickListener {
+        binding.btnGetStatus.setOnClickListener {
 
         }
     }
