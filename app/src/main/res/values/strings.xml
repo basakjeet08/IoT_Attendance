@@ -12,4 +12,6 @@
     <string name="attendance">Attendance</string>
     <string name="innovance">INNOVANCE</string>
     <string name="iot_logo">iOT LOGO</string>
+    <string name="qr_scanner">QR Scanner</string>
+    <string name="try_qr_scanner_instead">Try Qr Scanner Instead!!</string>
 </resources>
