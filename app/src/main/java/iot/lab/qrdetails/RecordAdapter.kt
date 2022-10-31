@@ -23,6 +23,9 @@ class RecordAdapter(private val context: Context) : RecyclerView.Adapter<RecordA
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         val currentItem = data[position]
+        val currentInTime : String? = currentItem.in_time
+        val currentOutTime : String? = currentItem.out_time
+
 
         //Format which we received From the API call
         val formatReceived = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:SS.sss'Z'")
@@ -34,17 +37,20 @@ class RecordAdapter(private val context: Context) : RecyclerView.Adapter<RecordA
         val desiredFormat = SimpleDateFormat("dd-MMM-yyyy      'Time : ' hh:mm:ss a")
 
         //Making Date objects from the in time and out Time strings
-        val dateInTime = formatReceived.parse(currentItem.in_time)!!
-        val dateOutTime = formatReceived.parse(currentItem.out_time)!!
+        val dateInTime = currentInTime?.let { formatReceived.parse(it) }
+        val dateOutTime = currentOutTime?.let { formatReceived.parse(it) }
 
         // Parsing the date Objects which returns the String in the format as specified in desiredFormat variable
-        val correctedInTime = desiredFormat.format(dateInTime)
-        val correctedOutTime = desiredFormat.format(dateOutTime)
+        val correctedInTime = dateInTime?.let { desiredFormat.format(it) }
+        val correctedOutTime = dateOutTime?.let { desiredFormat.format(it) }
 
         //Setting up the data to the Views
         holder.roll.text = context.getString(R.string.roll_no , currentItem.roll)
         holder.inTime.text = context.getString(R.string.in_time , correctedInTime)
-        holder.outTime.text = context.getString(R.string.out_time , correctedOutTime)
+        if(correctedOutTime == null)
+            holder.outTime.text = context.getString(R.string.out_time , "None")
+        else
+            holder.outTime.text = context.getString(R.string.out_time , correctedOutTime)
 
 
     }

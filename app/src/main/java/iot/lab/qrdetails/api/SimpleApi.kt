@@ -23,6 +23,12 @@ interface SimpleApi {
         @Query("filter[in_time][_between]") inTimeBetween: String
     ): retrofit2.Response<Data>
 
+//    @GET("registration")
+//    suspend fun getRegistrationDetails(
+//        @Query("filter[roll][_eq]") number: String ,
+//    ): retrofit2.Response<>
+//    
+
 
 //    @GET("posts/{postNumber}")
 //    suspend fun getPost2(

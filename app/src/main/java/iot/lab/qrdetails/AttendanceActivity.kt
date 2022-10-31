@@ -81,7 +81,7 @@ class AttendanceActivity : AppCompatActivity() {
 
         //Checking if the EditText field is empty or not
         if(binding.rollNumber.text.isEmpty())
-            Toast.makeText(this , "Invalid Roll Number " , Toast.LENGTH_SHORT).show()
+            Toast.makeText(this , "Enter Roll Number " , Toast.LENGTH_SHORT).show()
         else {
 
             //Checking which API to call and calling them
@@ -91,6 +91,8 @@ class AttendanceActivity : AppCompatActivity() {
                 viewModel.getPostOfFixedDay(rollNumberText , forFixedDay!! , forFixedMonth!! , forFixedYear!!)
             else if(inTimeBetweenStart != null && inTimeBetweenEnd != null)
                 viewModel.getPostBetweenDays(rollNumberText ,"$inTimeBetweenStart,$inTimeBetweenEnd")
+            else
+                Toast.makeText(this , "Pick Dates Properly " , Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -115,7 +117,6 @@ class AttendanceActivity : AppCompatActivity() {
                 }
             }
         }, myCalendar.get(Calendar.YEAR) , myCalendar.get(Calendar.MONTH) , myCalendar.get(Calendar.DATE))
-        cal.datePicker.maxDate = System.currentTimeMillis()
         cal.show()
     }
 }
