@@ -18,6 +18,13 @@
         android:theme="@style/Theme.QRDetails"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".RegistrationDetails"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".QrRollChoiceActivity"
             android:exported="false">
             <meta-data
@@ -41,7 +48,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
