@@ -8,7 +8,7 @@
     android:background="@drawable/card_background"
     android:padding="8dp"
     app:cardBackgroundColor="#F9F9F9"
-    tools:context=".AttendanceActivity">
+    tools:context=".ui.AttendanceActivity">
 
 
     <EditText

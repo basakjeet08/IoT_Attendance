@@ -1,4 +1,4 @@
-package iot.lab.qrdetails
+package iot.lab.qrdetails.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -7,15 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import iot.lab.qrdetails.R
 import iot.lab.qrdetails.model.Post
 import java.text.SimpleDateFormat
 import java.util.*
 
-class RecordAdapter(private val context: Context) : RecyclerView.Adapter<RecordAdapter.MyViewHolder>() {
+class AttendanceAdapter(private val context: Context) : RecyclerView.Adapter<AttendanceAdapter.MyViewHolder>() {
     private var data : List<Post> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.records_row, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_attendance_row, parent, false)
         return MyViewHolder(itemView)
     }
 
@@ -45,12 +46,12 @@ class RecordAdapter(private val context: Context) : RecyclerView.Adapter<RecordA
         val correctedOutTime = dateOutTime?.let { desiredFormat.format(it) }
 
         //Setting up the data to the Views
-        holder.roll.text = context.getString(R.string.roll_no , currentItem.roll)
-        holder.inTime.text = context.getString(R.string.in_time , correctedInTime)
+        holder.roll.text = context.getString(R.string.roll_no, currentItem.roll)
+        holder.inTime.text = context.getString(R.string.in_time, correctedInTime)
         if(correctedOutTime == null)
-            holder.outTime.text = context.getString(R.string.out_time , "None")
+            holder.outTime.text = context.getString(R.string.out_time, "None")
         else
-            holder.outTime.text = context.getString(R.string.out_time , correctedOutTime)
+            holder.outTime.text = context.getString(R.string.out_time, correctedOutTime)
 
 
     }

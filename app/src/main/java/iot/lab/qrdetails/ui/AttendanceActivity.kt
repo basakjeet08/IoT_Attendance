@@ -1,4 +1,4 @@
-package iot.lab.qrdetails
+package iot.lab.qrdetails.ui
 
 import android.app.DatePickerDialog
 import android.os.Bundle
@@ -7,14 +7,18 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import iot.lab.qrdetails.adapter.AttendanceAdapter
+import iot.lab.qrdetails.R
 import iot.lab.qrdetails.databinding.ActivityAttendanceBinding
 import iot.lab.qrdetails.repository.Repository
+import iot.lab.qrdetails.viewmodel.AttendanceViewModel
+import iot.lab.qrdetails.viewmodel.AttendanceViewModelFactory
 import java.util.*
 
 class AttendanceActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAttendanceBinding
-    private lateinit var viewModel: MainViewModel
-    private val adapter by lazy { RecordAdapter(this) }
+    private lateinit var viewModel: AttendanceViewModel
+    private val adapter by lazy { AttendanceAdapter(this) }
 
     private var forFixedDay : String ? = null
     private var forFixedMonth : String ? = null
@@ -69,8 +73,8 @@ class AttendanceActivity : AppCompatActivity() {
         binding.recyclerView.setHasFixedSize(true)
 
         // Setting Up the ViewModel and making up the ViewModel Object
-        val viewModelFactory = MainViewModelFactory(Repository())
-        viewModel = ViewModelProvider(this, viewModelFactory)[MainViewModel::class.java]
+        val viewModelFactory = AttendanceViewModelFactory(Repository())
+        viewModel = ViewModelProvider(this, viewModelFactory)[AttendanceViewModel::class.java]
     }
 
     //It contains all the logic and the API calls
@@ -108,12 +112,12 @@ class AttendanceActivity : AppCompatActivity() {
                     forFixedYear = selectedYear.toString()
                     inTimeBetweenStart = "$selectedYear-${selectedMonth+1}-$selectedDay"
                     val formatToShow = "$selectedDay-${selectedMonth+1}-$selectedYear"
-                    binding.tvFromDate.text = getString(R.string.format , formatToShow)
+                    binding.tvFromDate.text = getString(R.string.format, formatToShow)
                 }
                 2 -> {
                     inTimeBetweenEnd = "$selectedYear-${selectedMonth+1}-$selectedDay"
                     val formatToShow = "$selectedDay-${selectedMonth+1}-$selectedYear"
-                    binding.tvToDate.text = getString(R.string.format , formatToShow)
+                    binding.tvToDate.text = getString(R.string.format, formatToShow)
                 }
             }
         }, myCalendar.get(Calendar.YEAR) , myCalendar.get(Calendar.MONTH) , myCalendar.get(Calendar.DATE))

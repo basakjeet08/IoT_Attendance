@@ -1,4 +1,4 @@
-package iot.lab.qrdetails
+package iot.lab.qrdetails.ui
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -13,14 +13,15 @@ import com.budiyev.android.codescanner.CodeScannerView
 import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
+import iot.lab.qrdetails.R
 
-class MainActivity : AppCompatActivity() {
+class QrScannerActivity : AppCompatActivity() {
 
     private lateinit var codeScanner: CodeScanner
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_qr_scanner)
 
         if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) ==
                 PackageManager.PERMISSION_DENIED) {
@@ -43,10 +44,10 @@ class MainActivity : AppCompatActivity() {
         codeScanner.decodeCallback = DecodeCallback {
             runOnUiThread {
                 Toast.makeText(this, "Scan Result: ${it.text}", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this@MainActivity,Details::class.java);
+                val intent = Intent(this@QrScannerActivity, RegistrationDetails::class.java)
                 val rollNumber = it.text
                 intent.putExtra("Roll Number", rollNumber)
-                startActivity(intent);
+                startActivity(intent)
             }
         }
         codeScanner.errorCallback = ErrorCallback {

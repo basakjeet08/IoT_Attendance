@@ -18,24 +18,24 @@
         android:theme="@style/Theme.QRDetails"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".RegistrationDetails"
+            android:name=".ui.RegistrationDetails"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".QrRollChoiceActivity"
+            android:name=".ui.QrRollChoiceActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AttendanceActivity"
+            android:name=".ui.AttendanceActivity"
             android:exported="false" />
         <activity
-            android:name=".ChoiceActivity"
+            android:name=".ui.HomePageActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,10 +44,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Details"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".ui.QrScannerActivity"
             android:exported="true" />
     </application>
 

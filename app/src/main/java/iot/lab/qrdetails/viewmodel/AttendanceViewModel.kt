@@ -1,4 +1,4 @@
-package iot.lab.qrdetails
+package iot.lab.qrdetails.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,7 +9,7 @@ import iot.lab.qrdetails.repository.Repository
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class MainViewModel(private val repository: Repository): ViewModel() {
+class AttendanceViewModel(private val repository: Repository): ViewModel() {
 
     private val _myResponse : MutableLiveData<Response<Data>> = MutableLiveData()
     val myResponse : LiveData<Response<Data>>
