@@ -1,4 +1,4 @@
-package iot.lab.qrdetails
+package iot.lab.qrdetails.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,16 +9,16 @@ import iot.lab.qrdetails.repository.Repository
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class MainViewModel(private val repository: Repository): ViewModel() {
+class AttendanceViewModel(private val repository: Repository): ViewModel() {
 
     private val _myResponse : MutableLiveData<Response<Data>> = MutableLiveData()
     val myResponse : LiveData<Response<Data>>
         get() = _myResponse
 
     //This calls the repository and ask it to fetch data of roll without filter
-    fun getPost(number : String) {
+    fun getPostByRoll(number : String) {
         viewModelScope.launch {
-            val response: Response<Data> = repository.getPost(number)
+            val response: Response<Data> = repository.getPostByRoll(number)
             _myResponse.value = response
         }
     }
