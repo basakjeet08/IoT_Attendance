@@ -1,99 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/card_background"
+    android:background="@drawable/registration_details_background"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".ui.RegistrationDetails">
 
-    <TextView
-        android:id="@+id/tvName"
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:fontFamily="@font/poppins"
-        android:padding="8dp"
-        android:text="@string/name"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:backgroundTint="@color/blue_shade"
+        android:elevation="8dp"
+        app:cardCornerRadius="8dp">
 
-    <TextView
-        android:id="@+id/tvRoll"
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:padding="8dp"
+            android:text="@string/name"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:fontFamily="@font/poppins"
-        android:padding="8dp"
-        android:text="@string/roll_no"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:backgroundTint="@color/blue_shade"
+        android:elevation="8dp"
+        app:cardCornerRadius="8dp">
 
-    <TextView
-        android:id="@+id/tvPlanType"
+        <TextView
+            android:id="@+id/tvRoll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:padding="8dp"
+            android:text="@string/roll_no"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:fontFamily="@font/poppins"
-        android:padding="8dp"
-        android:text="@string/plan_type"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:backgroundTint="@color/blue_shade"
+        android:elevation="8dp"
+        app:cardCornerRadius="8dp">
 
-    <TextView
-        android:id="@+id/tvPlanDescription"
+
+        <TextView
+            android:id="@+id/tvPlanType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:padding="8dp"
+            android:text="@string/plan_type"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:fontFamily="@font/poppins"
-        android:padding="8dp"
-        android:text="@string/plan_description"
-        android:textColor="#F80202"
-        android:textSize="16sp" />
+        android:backgroundTint="@color/blue_shade"
+        android:elevation="8dp"
+        app:cardCornerRadius="8dp">
 
-    <TextView
-        android:id="@+id/tvTotalFare"
+
+        <TextView
+            android:id="@+id/tvPlanDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:padding="8dp"
+            android:text="@string/plan_description"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+
+            />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:fontFamily="@font/poppins"
-        android:padding="8dp"
-        android:text="@string/total_fare_s"
-        android:textColor="#F80202"
-        android:textSize="16sp" />
+        android:backgroundTint="@color/blue_shade"
+        android:elevation="8dp"
+        app:cardCornerRadius="8dp">
 
-    <TextView
-        android:id="@+id/tvFoodOpted"
+
+        <TextView
+            android:id="@+id/tvTotalFare"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:padding="8dp"
+            android:text="@string/total_fare_s"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:fontFamily="@font/poppins"
-        android:padding="8dp"
-        android:text="@string/food_opted_for"
-        android:textColor="#F80202"
-        android:textSize="16sp" />
+        android:backgroundTint="@color/blue_shade"
+        android:elevation="8dp"
+        app:cardCornerRadius="8dp">
 
-    <TextView
-        android:id="@+id/tvEmail"
+
+        <TextView
+            android:id="@+id/tvFoodOpted"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:padding="8dp"
+            android:text="@string/food_opted_for"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:fontFamily="@font/poppins"
-        android:padding="8dp"
-        android:text="@string/email_s"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:backgroundTint="@color/blue_shade"
+        android:elevation="8dp"
+        app:cardCornerRadius="8dp">
 
-    <TextView
-        android:id="@+id/tvContact"
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:padding="8dp"
+            android:text="@string/email_s"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins"
-        android:padding="8dp"
-        android:text="@string/contact_s"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/blue_shade"
+        android:elevation="8dp"
+        app:cardCornerRadius="8dp">
+
+        <TextView
+            android:id="@+id/tvContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:padding="8dp"
+            android:text="@string/contact_s"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>
