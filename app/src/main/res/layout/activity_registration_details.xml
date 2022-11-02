@@ -1,9 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.RegistrationDetails">
+    tools:context=".ui.RegistrationDetails"
+    android:background="@drawable/card_background"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:id="@+id/tvName"
+        android:text="@string/name"
+        android:layout_marginBottom="8dp"
+        android:padding="8dp"
+        />
+    <TextView
+        android:id="@+id/tvRoll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/roll_no"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/tvPlanType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/plan_type"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:padding="8dp"/>
+
+    <TextView
+    android:id="@+id/tvPlanDescription"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:fontFamily="@font/poppins"
+    android:text="@string/plan_description"
+    android:textColor="@color/black"
+    android:textSize="14sp"
+    android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/tvFoodOpted"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/food_opted_for"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:padding="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="@string/email_s"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:padding="8dp"
+            android:layout_marginEnd="8dp"
+            />
+
+        <TextView
+            android:id="@+id/tvContact"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="@string/contact_s"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:padding="8dp"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

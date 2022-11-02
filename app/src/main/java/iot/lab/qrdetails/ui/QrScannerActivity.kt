@@ -46,7 +46,7 @@ class QrScannerActivity : AppCompatActivity() {
                 Toast.makeText(this, "Scan Result: ${it.text}", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this@QrScannerActivity, RegistrationDetails::class.java)
                 val rollNumber = it.text
-                intent.putExtra("Roll Number", rollNumber)
+                intent.putExtra("ROLL_NUMBER", rollNumber)
                 startActivity(intent)
             }
         }

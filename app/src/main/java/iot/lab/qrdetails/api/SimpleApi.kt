@@ -1,6 +1,7 @@
 package iot.lab.qrdetails.api
 
 import iot.lab.qrdetails.model.Data
+import iot.lab.qrdetails.model.EventData
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -23,11 +24,14 @@ interface SimpleApi {
         @Query("filter[in_time][_between]") inTimeBetween: String
     ): retrofit2.Response<Data>
 
-//    @GET("registration")
-//    suspend fun getRegistrationDetails(
-//        @Query("filter[roll][_eq]") number: String ,
-//    ): retrofit2.Response<>
-//    
+
+
+    // GET request for fetching the registration details of a single roll Number
+    @GET("innovance_registration")
+    suspend fun getRegistrationDetails(
+        @Query("filter[id][_eq]") number: String
+    ): retrofit2.Response<EventData>
+
 
 
 //    @GET("posts/{postNumber}")
