@@ -8,5 +8,6 @@ data class RegistrationData(
     val plan_type : String? ,
     val plan_description : String? ,
     val food_opted : Boolean? ,
-    val ph_number : String?
+    val ph_number : String? ,
+    val total_fare : String?
 )

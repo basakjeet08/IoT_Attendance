@@ -54,6 +54,17 @@
         android:textSize="16sp" />
 
     <TextView
+        android:id="@+id/tvTotalFare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/poppins"
+        android:padding="8dp"
+        android:text="@string/total_fare_s"
+        android:textColor="#F80202"
+        android:textSize="16sp" />
+
+    <TextView
         android:id="@+id/tvFoodOpted"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

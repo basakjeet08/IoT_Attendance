@@ -49,6 +49,10 @@ class RegistrationDetails : AppCompatActivity() {
         binding.tvPlanType.text = getString(R.string.plan_type, data.plan_type)
         binding.tvPlanDescription.text = getString(R.string.plan_description, data.plan_description)
 
+        //Setting the Fare Money and removing .00000 from the value
+        val fare = data.total_fare!!.replace(".00000" , "")
+        binding.tvTotalFare.text = getString(R.string.total_fare_s , fare)
+
         //Checking the food opted or not and displaying it properly
         if(data.food_opted == true)
             binding.tvFoodOpted.text = getString(R.string.food_opted_for, "Yes")
