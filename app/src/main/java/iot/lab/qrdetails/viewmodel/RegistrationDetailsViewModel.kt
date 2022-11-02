@@ -15,7 +15,7 @@ class RegistrationDetailsViewModel(private val repository: Repository) : ViewMod
     val myResponse : LiveData<Response<EventData>>
         get() = _myResponse
 
-    //This calls the repository and ask it to fetch data of roll without filter
+    //This calls the repository and ask it to fetch Registration Details of roll
     fun getRegistrationDetails(rollNumber : String) {
         viewModelScope.launch {
             val response = repository.getRegistrationDetails(rollNumber)

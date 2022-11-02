@@ -6,9 +6,12 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface SimpleApi {
-    @GET("attendance")
-    suspend fun getPost(@Query("filter[roll][_eq]") number: String): retrofit2.Response<Data>
 
+    // For fetching attendance with only Roll Number
+    @GET("attendance")
+    suspend fun getPostByRoll(@Query("filter[roll][_eq]") number: String): retrofit2.Response<Data>
+
+    // For fetching attendance with Roll number and of a particular date
     @GET("attendance")
     suspend fun getPostOfFixedDay(
         @Query("filter[roll][_eq]") number: String,
@@ -17,7 +20,7 @@ interface SimpleApi {
         @Query("filter[year(in_time)][_eq]") inTimeYear: String
     ): retrofit2.Response<Data>
 
-
+    // For fetching attendance of a roll Number between two given dates
     @GET("attendance")
     suspend fun getPostBetweenDays(
         @Query("filter[roll][_eq]") number: String,
@@ -25,13 +28,11 @@ interface SimpleApi {
     ): retrofit2.Response<Data>
 
 
-
-    // GET request for fetching the registration details of a single roll Number
+    // For fetching the registration details of a single roll Number
     @GET("innovance_registration")
     suspend fun getRegistrationDetails(
         @Query("filter[id][_eq]") number: String
     ): retrofit2.Response<EventData>
-
 
 
 //    @GET("posts/{postNumber}")

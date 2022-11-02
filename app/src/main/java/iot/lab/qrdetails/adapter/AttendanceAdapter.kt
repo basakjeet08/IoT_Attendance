@@ -67,6 +67,8 @@ class AttendanceAdapter(private val context: Context) : RecyclerView.Adapter<Att
         val outTime: TextView = itemView.findViewById(R.id.out_time)
 
     }
+
+    //This function is made to update the List so that the adapter can show the new list details
     fun updateList(newList: List<Post>) {
         data = newList.sortedByDescending {
             it.in_time

@@ -3,47 +3,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:background="@drawable/card_background"
-    android:padding="8dp"
-    tools:context=".ui.QrRollChoiceActivity"
+    android:gravity="center"
     android:orientation="vertical"
-    >
+    android:padding="8dp"
+    tools:context=".ui.QrRollChoiceActivity">
 
     <EditText
         android:id="@+id/etRollNumber"
         android:layout_width="300dp"
         android:layout_height="58dp"
+        android:layout_marginBottom="16dp"
         android:autofillHints="Roll Number"
         android:background="@drawable/but_background"
         android:elevation="8dp"
-        android:padding="16dp"
         android:fontFamily="@font/poppins"
         android:hint="@string/roll_number"
         android:inputType="number"
+        android:padding="16dp"
         android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:layout_marginBottom="16dp"
-        />
+        android:textColorHint="@color/white" />
+
     <Button
         android:id="@+id/btnGetStatus"
-        android:background="@drawable/but_background"
         android:layout_width="168dp"
         android:layout_height="51dp"
-        android:text="@string/get_status"
+        android:background="@drawable/but_background"
         android:fontFamily="@font/poppins_bold"
+        android:text="@string/get_status"
         android:textAllCaps="false"
-        android:textSize="16sp"
-        />
+        android:textSize="16sp" />
+
     <Button
         android:id="@+id/btnQRScanner"
         android:layout_width="wrap_content"
         android:layout_height="51dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/but_background"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/try_qr_scanner_instead"
         android:textAllCaps="false"
-        android:textSize="16sp"
-        android:layout_marginTop="16dp"
-        />
+        android:textSize="16sp" />
 </LinearLayout>

@@ -79,13 +79,13 @@ class QrScannerActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         if(::codeScanner.isInitialized) {
-            codeScanner?.startPreview()
+            codeScanner.startPreview()
         }
     }
 
     override fun onPause() {
         if(::codeScanner.isInitialized) {
-            codeScanner?.releaseResources()
+            codeScanner.releaseResources()
         }
         super.onPause()
     }

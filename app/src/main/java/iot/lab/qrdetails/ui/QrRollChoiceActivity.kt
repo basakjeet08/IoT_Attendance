@@ -15,10 +15,13 @@ class QrRollChoiceActivity : AppCompatActivity() {
         binding = ActivityQrRollChoiceBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //Opens the QRScanner Activity if this button is pressed
         binding.btnQRScanner.setOnClickListener {
             val intent = Intent(this , QrScannerActivity::class.java)
             startActivity(intent)
         }
+
+        // Checks if there is any roll number entered and opens the registrationDetails activity
         binding.btnGetStatus.setOnClickListener {
             val roll = binding.etRollNumber.text.toString()
 

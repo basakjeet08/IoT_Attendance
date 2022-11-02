@@ -16,9 +16,9 @@ class AttendanceViewModel(private val repository: Repository): ViewModel() {
         get() = _myResponse
 
     //This calls the repository and ask it to fetch data of roll without filter
-    fun getPost(number : String) {
+    fun getPostByRoll(number : String) {
         viewModelScope.launch {
-            val response: Response<Data> = repository.getPost(number)
+            val response: Response<Data> = repository.getPostByRoll(number)
             _myResponse.value = response
         }
     }

@@ -3,34 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.RegistrationDetails"
     android:background="@drawable/card_background"
-    android:orientation="vertical"
     android:gravity="center"
+    android:orientation="vertical"
     android:padding="16dp"
-    >
+    tools:context=".ui.RegistrationDetails">
 
     <TextView
+        android:id="@+id/tvName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:id="@+id/tvName"
-        android:text="@string/name"
         android:layout_marginBottom="8dp"
+        android:fontFamily="@font/poppins"
         android:padding="8dp"
-        />
+        android:text="@string/name"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
     <TextView
         android:id="@+id/tvRoll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/poppins"
+        android:padding="8dp"
         android:text="@string/roll_no"
         android:textColor="@color/black"
-        android:textSize="14sp"
-        android:padding="8dp"/>
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tvPlanType"
@@ -38,21 +37,21 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/poppins"
+        android:padding="8dp"
         android:text="@string/plan_type"
         android:textColor="@color/black"
-        android:textSize="14sp"
-        android:padding="8dp"/>
+        android:textSize="16sp" />
 
     <TextView
-    android:id="@+id/tvPlanDescription"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
-    android:fontFamily="@font/poppins"
-    android:text="@string/plan_description"
-    android:textColor="@color/black"
-    android:textSize="14sp"
-    android:padding="8dp"/>
+        android:id="@+id/tvPlanDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/poppins"
+        android:padding="8dp"
+        android:text="@string/plan_description"
+        android:textColor="#F80202"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tvFoodOpted"
@@ -60,42 +59,30 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/poppins"
+        android:padding="8dp"
         android:text="@string/food_opted_for"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:padding="8dp"/>
+        android:textColor="#F80202"
+        android:textSize="16sp" />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/tvEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/poppins"
+        android:padding="8dp"
+        android:text="@string/email_s"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/tvEmail"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
-            android:text="@string/email_s"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:padding="8dp"
-            android:layout_marginEnd="8dp"
-            />
-
-        <TextView
-            android:id="@+id/tvContact"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
-            android:text="@string/contact_s"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:padding="8dp"/>
-
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/tvContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:padding="8dp"
+        android:text="@string/contact_s"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
 
 </LinearLayout>

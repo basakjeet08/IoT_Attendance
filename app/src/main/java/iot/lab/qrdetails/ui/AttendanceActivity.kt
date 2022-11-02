@@ -90,7 +90,7 @@ class AttendanceActivity : AppCompatActivity() {
 
             //Checking which API to call and calling them
             if(inTimeBetweenStart == null && inTimeBetweenEnd == null)
-                viewModel.getPost(rollNumberText)
+                viewModel.getPostByRoll(rollNumberText)
             else if(inTimeBetweenStart == inTimeBetweenEnd )
                 viewModel.getPostOfFixedDay(rollNumberText , forFixedDay!! , forFixedMonth!! , forFixedYear!!)
             else if(inTimeBetweenStart != null && inTimeBetweenEnd != null)

@@ -10,8 +10,7 @@ class HomePageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomePageBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
         binding.innovance.setOnClickListener {
             val intent = Intent(this, QrRollChoiceActivity::class.java)
             startActivity(intent)
