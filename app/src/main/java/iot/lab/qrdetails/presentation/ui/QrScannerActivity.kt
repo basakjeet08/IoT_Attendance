@@ -1,6 +1,5 @@
 package iot.lab.qrdetails.presentation.ui
 
-import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -23,13 +22,19 @@ class QrScannerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_qr_scanner)
 
-        if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) ==
-                PackageManager.PERMISSION_DENIED) {
-            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CAMERA), 123)
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) ==
+            PackageManager.PERMISSION_DENIED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(android.Manifest.permission.CAMERA),
+                123
+            )
         } else {
             startScanning()
         }
     }
+
     private fun startScanning() {
         val scannerView: CodeScannerView = findViewById(R.id.scannerView)
         codeScanner = CodeScanner(this, scannerView)
@@ -43,16 +48,20 @@ class QrScannerActivity : AppCompatActivity() {
 
         codeScanner.decodeCallback = DecodeCallback {
             runOnUiThread {
-                Toast.makeText(this, "Scan Result: ${it.text}", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this@QrScannerActivity, RegistrationDetails::class.java)
-                val rollNumber = it.text
-                intent.putExtra("ROLL_NUMBER", rollNumber)
-                startActivity(intent)
+//                Toast.makeText(this, "Scan Result: ${it.text}", Toast.LENGTH_SHORT).show()
+//                val intent = Intent(this@QrScannerActivity, RegistrationDetails::class.java)
+//                val rollNumber = it.text
+//                intent.putExtra("ROLL_NUMBER", rollNumber)
+//                startActivity(intent)
             }
         }
         codeScanner.errorCallback = ErrorCallback {
             runOnUiThread {
-                Toast.makeText(this, "Camera initialisation error: ${it.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "Camera initialisation error: ${it.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
@@ -67,8 +76,8 @@ class QrScannerActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if(requestCode == 123) {
-            if(grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        if (requestCode == 123) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(this, "Camera permission granted", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "Camera permission denied", Toast.LENGTH_SHORT).show()
@@ -78,13 +87,13 @@ class QrScannerActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        if(::codeScanner.isInitialized) {
+        if (::codeScanner.isInitialized) {
             codeScanner.startPreview()
         }
     }
 
     override fun onPause() {
-        if(::codeScanner.isInitialized) {
+        if (::codeScanner.isInitialized) {
             codeScanner.releaseResources()
         }
         super.onPause()

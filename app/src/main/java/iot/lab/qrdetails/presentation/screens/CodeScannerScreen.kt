@@ -1,17 +1,12 @@
 package iot.lab.qrdetails.presentation.screens
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
-import iot.lab.qrdetails.core.scanner.CustomBarCodeScanner
+import androidx.compose.runtime.LaunchedEffect
+import iot.lab.qrdetails.presentation.viewmodel.CodeScannerViewModel
 
 @Composable
-fun CodeScannerScreen() {
-
-    val scanner = CustomBarCodeScanner(LocalContext.current)
-    scanner.startScanner(
-        onSuccess = {},
-        onCancelled = {},
-        onFailure = {}
-    )
-
+fun CodeScannerScreen(viewModel: CodeScannerViewModel) {
+    LaunchedEffect(Unit) {
+        viewModel.startScanner()
+    }
 }

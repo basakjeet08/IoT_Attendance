@@ -6,11 +6,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import iot.lab.qrdetails.presentation.screens.CodeScannerScreen
 import iot.lab.qrdetails.presentation.screens.SplashScreen
+import iot.lab.qrdetails.presentation.viewmodel.CodeScannerViewModel
 
 @Composable
 fun NavGraph(
-    navController: NavHostController
+    navController: NavHostController,
+    viewModel: CodeScannerViewModel
 ) {
+
     NavHost(
         navController = navController,
         startDestination = NavigationRoutes.Splash.route
@@ -29,7 +32,7 @@ fun NavGraph(
 
         // Home Screen
         composable(route = NavigationRoutes.Home.route) {
-            CodeScannerScreen()
+            CodeScannerScreen(viewModel = viewModel)
         }
     }
 }
