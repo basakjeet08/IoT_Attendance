@@ -1,11 +1,11 @@
-package iot.lab.qrdetails.navigation
+package iot.lab.qrdetails.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import iot.lab.qrdetails.screens.CodeScannerScreen
-import iot.lab.qrdetails.screens.SplashScreen
+import iot.lab.qrdetails.presentation.screens.CodeScannerScreen
+import iot.lab.qrdetails.presentation.screens.SplashScreen
 
 @Composable
 fun NavGraph(

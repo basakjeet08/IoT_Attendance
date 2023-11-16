@@ -28,21 +28,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.RegistrationDetails"
+            android:name=".presentation.ui.RegistrationDetails"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.QrRollChoiceActivity"
+            android:name=".presentation.ui.QrRollChoiceActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.QrScannerActivity"
+            android:name=".presentation.ui.QrScannerActivity"
             android:exported="true" />
     </application>
 

@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="8dp"
-    tools:context=".ui.QrRollChoiceActivity">
+    tools:context=".presentation.ui.QrRollChoiceActivity">
 
     <EditText
         android:id="@+id/etRollNumber"

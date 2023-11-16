@@ -1,7 +1,7 @@
-package iot.lab.qrdetails.repository
+package iot.lab.qrdetails.data.repository
 
-import iot.lab.qrdetails.api.RetrofitInstance
-import iot.lab.qrdetails.model.EventData
+import iot.lab.qrdetails.data.remote.RetrofitInstance
+import iot.lab.qrdetails.data.model.EventData
 import retrofit2.Response
 
 class Repository {

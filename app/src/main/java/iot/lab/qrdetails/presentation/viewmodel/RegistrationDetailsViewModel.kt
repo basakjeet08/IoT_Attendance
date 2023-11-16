@@ -1,11 +1,11 @@
-package iot.lab.qrdetails.viewmodel
+package iot.lab.qrdetails.presentation.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import iot.lab.qrdetails.model.EventData
-import iot.lab.qrdetails.repository.Repository
+import iot.lab.qrdetails.data.model.EventData
+import iot.lab.qrdetails.data.repository.Repository
 import kotlinx.coroutines.launch
 import retrofit2.Response
 

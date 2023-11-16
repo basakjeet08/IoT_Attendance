@@ -9,8 +9,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import iot.lab.qrdetails.navigation.NavGraph
-import iot.lab.qrdetails.theme.QRDetailsTheme
+import iot.lab.qrdetails.presentation.navigation.NavGraph
+import iot.lab.qrdetails.core.theme.QRDetailsTheme
 
 @SuppressLint("CustomSplashScreen")
 class MainActivity : ComponentActivity() {

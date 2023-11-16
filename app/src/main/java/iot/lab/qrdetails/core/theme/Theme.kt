@@ -1,4 +1,4 @@
-package iot.lab.qrdetails.theme
+package iot.lab.qrdetails.core.theme
 
 import android.app.Activity
 import android.os.Build

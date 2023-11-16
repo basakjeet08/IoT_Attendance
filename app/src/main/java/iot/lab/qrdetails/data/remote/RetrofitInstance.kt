@@ -1,4 +1,4 @@
-package iot.lab.qrdetails.api
+package iot.lab.qrdetails.data.remote
 
 
 import iot.lab.qrdetails.util.Constants

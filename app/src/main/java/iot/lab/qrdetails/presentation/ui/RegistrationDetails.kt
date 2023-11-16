@@ -1,4 +1,4 @@
-package iot.lab.qrdetails.ui
+package iot.lab.qrdetails.presentation.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,10 +6,10 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import iot.lab.qrdetails.R
 import iot.lab.qrdetails.databinding.ActivityRegistrationDetailsBinding
-import iot.lab.qrdetails.model.RegistrationData
-import iot.lab.qrdetails.repository.Repository
-import iot.lab.qrdetails.viewmodel.RegistrationDetailsViewModel
-import iot.lab.qrdetails.viewmodel.RegistrationDetailsViewModelFactory
+import iot.lab.qrdetails.data.model.RegistrationData
+import iot.lab.qrdetails.data.repository.Repository
+import iot.lab.qrdetails.presentation.viewmodel.RegistrationDetailsViewModel
+import iot.lab.qrdetails.presentation.viewmodel.RegistrationDetailsViewModelFactory
 
 class RegistrationDetails : AppCompatActivity() {
 

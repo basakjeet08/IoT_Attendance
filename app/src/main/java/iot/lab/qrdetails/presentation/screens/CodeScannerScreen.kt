@@ -1,8 +1,8 @@
-package iot.lab.qrdetails.screens
+package iot.lab.qrdetails.presentation.screens
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
-import iot.lab.qrdetails.util.CustomBarCodeScanner
+import iot.lab.qrdetails.core.scanner.CustomBarCodeScanner
 
 @Composable
 fun CodeScannerScreen() {

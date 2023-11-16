@@ -1,4 +1,4 @@
-package iot.lab.qrdetails.screens
+package iot.lab.qrdetails.presentation.screens
 
 import android.content.res.Configuration
 import androidx.compose.animation.core.LinearEasing
@@ -30,7 +30,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import iot.lab.qrdetails.R
-import iot.lab.qrdetails.theme.QRDetailsTheme
+import iot.lab.qrdetails.core.theme.QRDetailsTheme
 import kotlinx.coroutines.delay
 
 // Preview Function

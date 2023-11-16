@@ -8,7 +8,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".ui.RegistrationDetails">
+    tools:context=".presentation.ui.RegistrationDetails">
 
 
     <androidx.cardview.widget.CardView

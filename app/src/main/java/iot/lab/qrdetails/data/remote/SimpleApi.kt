@@ -1,6 +1,6 @@
-package iot.lab.qrdetails.api
+package iot.lab.qrdetails.data.remote
 
-import iot.lab.qrdetails.model.EventData
+import iot.lab.qrdetails.data.model.EventData
 import retrofit2.http.GET
 import retrofit2.http.Query
 

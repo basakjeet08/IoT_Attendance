@@ -1,4 +1,4 @@
-package iot.lab.qrdetails.model
+package iot.lab.qrdetails.data.model
 
 data class RegistrationData(
     val id : String? ,

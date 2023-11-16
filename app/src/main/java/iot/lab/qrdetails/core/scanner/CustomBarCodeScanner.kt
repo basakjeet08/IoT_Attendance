@@ -1,4 +1,4 @@
-package iot.lab.qrdetails.util
+package iot.lab.qrdetails.core.scanner
 
 import android.content.Context
 import com.google.mlkit.vision.barcode.common.Barcode

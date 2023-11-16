@@ -1,4 +1,4 @@
-package iot.lab.qrdetails.viewmodel
+package iot.lab.qrdetails.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 

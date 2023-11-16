@@ -1,4 +1,4 @@
-package iot.lab.qrdetails.ui
+package iot.lab.qrdetails.presentation.ui
 
 import android.content.Intent
 import android.content.pm.PackageManager
