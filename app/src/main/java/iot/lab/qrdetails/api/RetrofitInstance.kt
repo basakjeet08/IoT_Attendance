@@ -27,7 +27,7 @@ object RetrofitInstance {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-    val apiEvent : SimpleApi by lazy {
+    val apiEvent: SimpleApi by lazy {
         retrofitEvent.create(SimpleApi::class.java)
     }
 
