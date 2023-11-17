@@ -6,5 +6,4 @@ sealed interface ScannerStates {
     class Success(val rollNumber: String) : ScannerStates
     object Cancelled : ScannerStates
     class Failure(val errorMessage: String) : ScannerStates
-    object Complete : ScannerStates
 }

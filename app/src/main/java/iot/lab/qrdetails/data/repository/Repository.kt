@@ -2,7 +2,7 @@ package iot.lab.qrdetails.data.repository
 
 import iot.lab.qrdetails.data.remote.RetrofitInstance
 import iot.lab.qrdetails.data.model.EventData
-import iot.lab.qrdetails.util.UiState
+import iot.lab.qrdetails.presentation.states.UiState
 
 
 class Repository {

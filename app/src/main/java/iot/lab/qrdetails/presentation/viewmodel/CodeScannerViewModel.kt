@@ -6,7 +6,7 @@ import iot.lab.qrdetails.core.scanner.CustomBarCodeScanner
 import iot.lab.qrdetails.data.model.EventData
 import iot.lab.qrdetails.data.repository.Repository
 import iot.lab.qrdetails.presentation.states.ScannerStates
-import iot.lab.qrdetails.util.UiState
+import iot.lab.qrdetails.presentation.states.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
@@ -55,7 +55,7 @@ class CodeScannerViewModel(
             // Success Listener
             onSuccess = {
                 _scannerState.value = ScannerStates.Success(it)
-//                getRegistrationDetails(it)
+                getRegistrationDetails(it)
             },
 
             // Cancelled Listener
@@ -70,11 +70,7 @@ class CodeScannerViewModel(
         )
     }
 
-    fun finishScannerState() {
-        _scannerState.value = ScannerStates.Complete
-    }
-
-    private fun resetScannerState() {
+    fun resetScannerState() {
         _scannerState.value = ScannerStates.Idle
     }
 
@@ -91,6 +87,12 @@ class CodeScannerViewModel(
      * This calls the repository and ask it to fetch Registration Details of roll
      */
     private fun getRegistrationDetails(rollNumber: String) {
+
+        if (_registrationApiState.value is UiState.Loading)
+            return
+
+        _registrationApiState.value = UiState.Loading
+
         viewModelScope.launch {
             val response = repository.getRegistrationDetails(rollNumber)
             _registrationApiState.value = response

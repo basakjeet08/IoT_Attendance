@@ -1,4 +1,4 @@
-package iot.lab.qrdetails.util
+package iot.lab.qrdetails.presentation.states
 
 /**
  * This sealed Class contains all the States of the Teacher List Request of a API

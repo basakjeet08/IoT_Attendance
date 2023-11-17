@@ -2,10 +2,11 @@ package iot.lab.qrdetails.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import iot.lab.qrdetails.presentation.screens.CodeScannerScreen
+import iot.lab.qrdetails.presentation.screens.CodeScannerScreenControl
 import iot.lab.qrdetails.presentation.screens.RegistrationResultScreen
 import iot.lab.qrdetails.presentation.screens.SplashScreen
 import iot.lab.qrdetails.presentation.viewmodel.CodeScannerViewModel
@@ -35,15 +36,15 @@ fun NavGraph(
         // Home Screen
         composable(route = NavigationRoutes.Scanner.route) {
 
-            val scannerStates = viewModel.scannerStates.collectAsState()
+            val scannerStates by viewModel.scannerStates.collectAsState()
+            val registrationState by viewModel.registrationApiState.collectAsState()
 
-            CodeScannerScreen(
-                scannerState = scannerStates.value,
+            CodeScannerScreenControl(
+                scannerState = scannerStates,
+                registrationState = registrationState,
                 onStartScannerClick = { viewModel.startScanner() },
-                finishScannerState = { viewModel.finishScannerState() }
-            ) {
-                navController.navigate(NavigationRoutes.RegistrationResults.route)
-            }
+                resetToIdleState = { viewModel.resetScannerState() }
+            )
         }
 
         composable(route = NavigationRoutes.RegistrationResults.route) {
