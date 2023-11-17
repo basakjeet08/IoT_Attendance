@@ -14,7 +14,7 @@ class Repository {
         val response = RetrofitInstance.apiEvent.getRegistrationDetails(rollNumber)
 
         // Checking if the data is valid or not
-        return if (response.isSuccessful)
+        return if (response.isSuccessful && response.body()?.data!!.isNotEmpty())
             UiState.Success(response.body()!!)
         else
             UiState.Failure(errorMessage = "Error Connecting to the Server")

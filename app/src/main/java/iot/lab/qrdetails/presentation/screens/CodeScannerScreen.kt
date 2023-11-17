@@ -43,9 +43,16 @@ fun CodeScannerScreenControl(
                 }
 
                 is UiState.Success -> {
+
+                    val userData = registrationState.data.data[0]
+
+                    val textToShow =
+                        "${userData.first_name} ${userData.last_name} is registered to " +
+                                "the ${userData.plan_description}"
+
                     EndScreenPopup(
-                        title = "Thank You",
-                        desc = "User is Registered",
+                        title = "Thank You ${userData.first_name}",
+                        desc = textToShow,
                         imageVector = Icons.Default.Done,
                         iconTint = Color.Green,
                         onContinueClick = resetToIdleState
