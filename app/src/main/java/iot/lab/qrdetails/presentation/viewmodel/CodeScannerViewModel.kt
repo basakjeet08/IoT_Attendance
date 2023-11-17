@@ -54,7 +54,7 @@ class CodeScannerViewModel(
 
             // Success Listener
             onSuccess = {
-                _scannerState.value = ScannerStates.Success(it)
+                _scannerState.value = ScannerStates.Success
                 getRegistrationDetails(it)
             },
 
@@ -86,11 +86,12 @@ class CodeScannerViewModel(
     /**
      * This calls the repository and ask it to fetch Registration Details of roll
      */
-    private fun getRegistrationDetails(rollNumber: String) {
+    fun getRegistrationDetails(rollNumber: String) {
 
         if (_registrationApiState.value is UiState.Loading)
             return
 
+        _scannerState.value = ScannerStates.Success
         _registrationApiState.value = UiState.Loading
 
         viewModelScope.launch {

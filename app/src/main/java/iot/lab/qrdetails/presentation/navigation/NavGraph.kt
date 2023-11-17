@@ -42,8 +42,9 @@ fun NavGraph(
             CodeScannerScreenControl(
                 scannerState = scannerStates,
                 registrationState = registrationState,
-                onStartScannerClick = { viewModel.startScanner() },
-                resetToIdleState = { viewModel.resetScannerState() }
+                onStartScannerClick = viewModel::startScanner,
+                getRegistrationDetails = viewModel::getRegistrationDetails,
+                resetToIdleState = viewModel::resetScannerState
             )
         }
     }

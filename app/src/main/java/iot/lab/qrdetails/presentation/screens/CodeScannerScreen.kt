@@ -16,11 +16,21 @@ import iot.lab.qrdetails.presentation.states.ScannerStates
 import iot.lab.qrdetails.presentation.states.UiState
 
 
+/**
+ * This function acts as the base Screen composable for the Code Scanner UI.
+ *
+ * @param scannerState This variable gives the state of the Code Scanner.
+ * @param registrationState This variable gives the state of the registration API call.
+ * @param onStartScannerClick This function starts the Scanner.
+ * @param getRegistrationDetails This function is used to get the registration details using roll input
+ * @param resetToIdleState This function resets the Scanner back to the Idle State
+ */
 @Composable
 fun CodeScannerScreenControl(
     scannerState: ScannerStates,
-    onStartScannerClick: () -> Unit,
     registrationState: UiState<EventData>,
+    onStartScannerClick: () -> Unit,
+    getRegistrationDetails: (String) -> Unit,
     resetToIdleState: () -> Unit
 ) {
 
@@ -78,7 +88,8 @@ fun CodeScannerScreenControl(
 
         is ScannerStates.Failure -> {
             CodeScannerFailure(
-                scannerState.errorMessage,
+                errorMessage = scannerState.errorMessage,
+                onSearchIconClick = getRegistrationDetails,
                 resetToIdleState = resetToIdleState
             )
         }
