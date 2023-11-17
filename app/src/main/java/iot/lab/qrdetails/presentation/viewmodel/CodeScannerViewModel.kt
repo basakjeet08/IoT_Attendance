@@ -1,11 +1,11 @@
 package iot.lab.qrdetails.presentation.viewmodel
 
-import android.util.Log.d
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import iot.lab.qrdetails.core.scanner.CustomBarCodeScanner
 import iot.lab.qrdetails.data.model.EventData
 import iot.lab.qrdetails.data.repository.Repository
+import iot.lab.qrdetails.presentation.states.ScannerStates
 import iot.lab.qrdetails.util.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -31,6 +31,14 @@ class CodeScannerViewModel(
 
 
     /**
+     * This variable keeps the states of the [scanner] and let the UI know what changes to
+     * undergo accordingly
+     */
+    private val _scannerState = MutableStateFlow<ScannerStates>(ScannerStates.Idle)
+    val scannerStates = _scannerState.asStateFlow()
+
+
+    /**
      * This function starts the scanner using the [scanner] variable of the [CustomBarCodeScanner]
      * class.
      *
@@ -39,30 +47,35 @@ class CodeScannerViewModel(
      */
     fun startScanner() {
 
+        _scannerState.value = ScannerStates.Running
+
         // Starting the scanner
         scanner?.startScanner(
 
             // Success Listener
             onSuccess = {
-                onCodeSuccess(it)
+                _scannerState.value = ScannerStates.Success(it)
+//                getRegistrationDetails(it)
             },
 
             // Cancelled Listener
-            onCancelled = {},
+            onCancelled = {
+                _scannerState.value = ScannerStates.Cancelled
+            },
 
             // failure Listener
-            onFailure = {}
+            onFailure = {
+                _scannerState.value = ScannerStates.Failure(it.message.toString())
+            }
         )
     }
 
+    fun finishScannerState() {
+        _scannerState.value = ScannerStates.Complete
+    }
 
-    /**
-     * This function is invoked when we find the roll number of a student from the bar code scanner
-     */
-    private fun onCodeSuccess(code: String) {
-
-        d("View Model", code)
-//        getRegistrationDetails(code)
+    private fun resetScannerState() {
+        _scannerState.value = ScannerStates.Idle
     }
 
 

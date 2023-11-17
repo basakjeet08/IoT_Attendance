@@ -51,8 +51,7 @@ class CustomBarCodeScanner(context: Context) {
 
             // Success Listener
             .addOnSuccessListener { barCode ->
-                val rawValue = barCode.rawValue
-                onSuccess(rawValue ?: "")
+                onSuccess(barCode.rawValue ?: "")
             }
 
             // Cancel Listener
