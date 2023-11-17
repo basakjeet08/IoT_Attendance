@@ -1,25 +1,4 @@
 <resources>
     <string name="app_name">QRDetails</string>
-    <string name="roll_number">Roll Number</string>
-    <string name="get_status">Get status</string>
-    <string name="from_date">From Date</string>
-    <string name="to_date">To Date</string>
-    <string name="format">%s</string>
-    <string name="roll_no">Roll No : %s</string>
-    <string name="in_time">In Time : %s</string>
-    <string name="out_time">Out Time : %s</string>
-    <string name="clock_image">Clock Image</string>
-    <string name="attendance">Attendance</string>
-    <string name="innovance">INNOVANCE</string>
-    <string name="iot_logo">iOT LOGO</string>
-    <string name="qr_scanner">QR Scanner</string>
-    <string name="try_qr_scanner_instead">Try Qr Scanner Instead!!</string>
-    <string name="name">Name : %s</string>
-    <string name="plan_type">Plan Type : %s</string>
-    <string name="plan_description">Plan Description : %s</string>
-    <string name="food_opted_for">Opted for Food : %s</string>
-    <string name="email_s">Email : %s</string>
-    <string name="contact_s">Contact : %s</string>
-    <string name="total_fare_s">Total Fare : Rs. %s</string>
     <string name="title_activity_main">QR Details</string>
 </resources>
