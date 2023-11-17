@@ -7,9 +7,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import iot.lab.qrdetails.presentation.screens.CodeScannerScreenControl
-import iot.lab.qrdetails.presentation.screens.RegistrationResultScreen
 import iot.lab.qrdetails.presentation.screens.SplashScreen
 import iot.lab.qrdetails.presentation.viewmodel.CodeScannerViewModel
+
 
 @Composable
 fun NavGraph(
@@ -45,10 +45,6 @@ fun NavGraph(
                 onStartScannerClick = { viewModel.startScanner() },
                 resetToIdleState = { viewModel.resetScannerState() }
             )
-        }
-
-        composable(route = NavigationRoutes.RegistrationResults.route) {
-            RegistrationResultScreen()
         }
     }
 }
