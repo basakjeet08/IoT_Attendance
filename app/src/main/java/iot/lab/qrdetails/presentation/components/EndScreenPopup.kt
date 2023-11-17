@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 fun EndScreenPopup(
     title: String,
     desc: String,
+    currentStatus: String? = null,
     imageVector: ImageVector,
     iconTint: Color,
     onContinueClick: () -> Unit
@@ -73,6 +74,17 @@ fun EndScreenPopup(
                     textAlign = TextAlign.Center
                 )
 
+                if (currentStatus != null) {
+                    Spacer(modifier = Modifier.height(32.dp))
+
+                    Text(
+                        modifier = Modifier.fillMaxWidth(),
+                        text = currentStatus,
+                        style = MaterialTheme.typography.labelLarge,
+                        textAlign = TextAlign.Center
+                    )
+                }
+
 
                 Button(
                     onClick = onContinueClick,
@@ -102,6 +114,7 @@ fun EndScreenPreview() {
     EndScreenPopup(
         title = "Thank you!",
         desc = "Your feedback has been submitted",
+        currentStatus = "Confirmed",
         imageVector = Icons.Default.Done,
         iconTint = Color.Green
     ) {

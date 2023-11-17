@@ -53,6 +53,7 @@ fun CodeScannerScreenControl(
                     EndScreenPopup(
                         title = "Thank You ${userData.first_name}",
                         desc = textToShow,
+                        currentStatus = "Current Status : ${userData.status}",
                         imageVector = Icons.Default.Done,
                         iconTint = Color.Green,
                         onContinueClick = resetToIdleState
