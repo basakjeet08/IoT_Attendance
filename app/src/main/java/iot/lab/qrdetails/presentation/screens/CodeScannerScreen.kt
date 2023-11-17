@@ -1,12 +1,17 @@
 package iot.lab.qrdetails.presentation.screens
 
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Done
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import iot.lab.qrdetails.data.model.EventData
 import iot.lab.qrdetails.presentation.components.DotTypingAnimation
 import iot.lab.qrdetails.presentation.components.CodeScannerCancelled
 import iot.lab.qrdetails.presentation.components.CodeScannerFailure
+import iot.lab.qrdetails.presentation.components.EndScreenPopup
 import iot.lab.qrdetails.presentation.states.ScannerStates
 import iot.lab.qrdetails.presentation.states.UiState
 
@@ -38,11 +43,23 @@ fun CodeScannerScreenControl(
                 }
 
                 is UiState.Success -> {
-
+                    EndScreenPopup(
+                        title = "Thank You",
+                        desc = "User is Registered",
+                        imageVector = Icons.Default.Done,
+                        iconTint = Color.Green,
+                        onContinueClick = resetToIdleState
+                    )
                 }
 
                 is UiState.Failure -> {
-
+                    EndScreenPopup(
+                        title = "Oops !!",
+                        desc = "User is not Registered",
+                        imageVector = Icons.Default.Close,
+                        iconTint = Color.Red,
+                        onContinueClick = resetToIdleState
+                    )
                 }
             }
         }

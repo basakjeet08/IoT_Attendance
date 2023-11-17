@@ -22,6 +22,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -31,6 +32,8 @@ import androidx.compose.ui.unit.dp
 fun EndScreenPopup(
     title: String,
     desc: String,
+    imageVector: ImageVector,
+    iconTint: Color,
     onContinueClick: () -> Unit
 ) {
     Row(
@@ -45,12 +48,10 @@ fun EndScreenPopup(
             colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.background),
             elevation = CardDefaults.cardElevation(4.dp)
         ) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Icon(
-                    tint = Color.Green,
-                    imageVector = Icons.Default.Done,
+                    tint = iconTint,
+                    imageVector = imageVector,
                     contentDescription = null,
                     modifier = Modifier.size(80.dp)
                 )
@@ -81,7 +82,7 @@ fun EndScreenPopup(
                     )
                 ) {
                     Text(
-                        text = "Continue",
+                        text = "Scan Again",
                         color = MaterialTheme.colorScheme.background,
                         style = MaterialTheme.typography.labelLarge
                     )
@@ -95,7 +96,12 @@ fun EndScreenPopup(
 @Preview
 @Composable
 fun EndScreenPreview() {
-    EndScreenPopup(title = "Thank you!", desc = "Your feedback has been submitted") {
+    EndScreenPopup(
+        title = "Thank you!",
+        desc = "Your feedback has been submitted",
+        imageVector = Icons.Default.Done,
+        iconTint = Color.Green
+    ) {
 
     }
 }
