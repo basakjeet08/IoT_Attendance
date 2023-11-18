@@ -1,5 +1,6 @@
 package iot.lab.qrdetails.presentation.components
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -33,6 +34,7 @@ fun EndScreenPopup(
     title: String,
     desc: String,
     currentStatus: String? = null,
+    studentYear: String? = null,
     imageVector: ImageVector,
     iconTint: Color,
     onContinueClick: () -> Unit
@@ -74,15 +76,35 @@ fun EndScreenPopup(
                     textAlign = TextAlign.Center
                 )
 
-                if (currentStatus != null) {
-                    Spacer(modifier = Modifier.height(32.dp))
+                Row(
+                    modifier = Modifier
+                        .padding(top = 16.dp)
+                        .fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
 
-                    Text(
-                        modifier = Modifier.fillMaxWidth(),
-                        text = currentStatus,
-                        style = MaterialTheme.typography.labelLarge,
-                        textAlign = TextAlign.Center
-                    )
+                    if (currentStatus != null) {
+                        Text(
+                            modifier = Modifier,
+                            text = currentStatus,
+                            style = MaterialTheme.typography.labelLarge,
+                            textAlign = TextAlign.Center,
+                            color = if (
+                                currentStatus.contains("pending") ||
+                                currentStatus.contains("rejected")
+                            ) Color.Red else Color.Green
+                        )
+                    }
+
+                    if (studentYear != null) {
+                        Text(
+                            modifier = Modifier,
+                            text = studentYear,
+                            style = MaterialTheme.typography.labelLarge,
+                            textAlign = TextAlign.Center
+                        )
+                    }
                 }
 
 

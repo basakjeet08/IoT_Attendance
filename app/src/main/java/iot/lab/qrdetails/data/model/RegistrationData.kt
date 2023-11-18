@@ -10,5 +10,6 @@ data class RegistrationData(
     val food_opted: Boolean?,
     val ph_number: String?,
     val total_fare: String?,
-    val status: String?
+    val status: String?,
+    val year: String?
 )

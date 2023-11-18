@@ -64,6 +64,7 @@ fun CodeScannerScreenControl(
                         title = "Thank You ${userData.first_name}",
                         desc = textToShow,
                         currentStatus = "Current Status : ${userData.status}",
+                        studentYear = "Year : ${userData.year}",
                         imageVector = Icons.Default.Done,
                         iconTint = Color.Green,
                         onContinueClick = resetToIdleState
